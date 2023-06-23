@@ -1,9 +1,12 @@
 package com.codewithkd.SpringMVC;
 
-import org.springframework.stereotype.Controller; 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,17 +21,27 @@ public class HomeController {
 	}
 	
 	@RequestMapping("add")
-	public ModelAndView add(@RequestParam("num1")int i,@RequestParam("num2")int j) {
+	public String add(@RequestParam("num1")int i, @RequestParam("num2")int j, ModelMap m) {		
 		
-		ModelAndView mv=new ModelAndView();
-		mv.setViewName("result");
+		int num3 = i + j;
+		m.addAttribute("sum3",num3);		
 		
-		int num3=i+j;
-		mv.addObject("sum3",num3);
-		
-		
-		return mv;
+		return "result";
 	}
+	
+	
+//	@RequestMapping("add")
+//	public ModelAndView add(@RequestParam("num1")int i, @RequestParam("num2")int j) {
+//		
+//		ModelAndView mv=new ModelAndView("result");
+////		ModelAndView mv=new ModelAndView();	
+////		mv.setViewName("result");
+//		
+//		int num3 = i + j;
+//		mv.addObject("sum3",num3);		
+//		
+//		return mv;
+//	}
 	
 //	@RequestMapping("add")
 //	public String add(@RequestParam("num1")int i,@RequestParam("num2")int j,HttpSession session) {
@@ -37,7 +50,7 @@ public class HomeController {
 //		
 //		session.setAttribute("sum3", num3);
 //		
-//		return "result.jsp";
+//		return "result.jsp";													
 //	}
 	
 //	@RequestMapping("add")
