@@ -8,9 +8,9 @@
 </head>
 <body>
 	<h1>Welcome Jasper </h1>
-	<form action="add">
-		Enter 1st Number : <input type="text" name="num1">
-		Enter 2nd Number : <input type="text" name="num2">
+	<form action="addAlien">
+		Enter your id : <input type="text" name="aid"><br>
+		Enter your name : <input type="text" name="aname"><br>
 		<input type="submit">
 	</form>
 </body>

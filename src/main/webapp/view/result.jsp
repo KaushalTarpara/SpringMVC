@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Result is :${sum3}
+	Result is :${a1}
+	
+	welcome home ${name}
 </body>
 </html>
