@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Result is :${a1}
-	<br>
-	welcome home ${name}
+		${result}
 </body>
 </html>

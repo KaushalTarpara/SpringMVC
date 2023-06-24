@@ -4,6 +4,13 @@ public class Alien {
 	private int aid;
 	private String aname;
 	
+	public Alien(int aid, String aname) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.aid=aid;
+		this.aname=aname;
+	}
+	
 	public int getAid() {
 		return aid;
 	}
