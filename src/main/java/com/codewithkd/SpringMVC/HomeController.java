@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -24,6 +25,9 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
+	@Autowired
+	AlienRepo repo;
+	
 	@RequestMapping("/")
 	public String home() {
 		return "index";
@@ -35,16 +39,30 @@ public class HomeController {
 	}
 	
 	@GetMapping("getAliens")
-	public String getAlien(Model m) {
-		List<Alien> aliens = Arrays.asList(new Alien(2,"Kaushal"), new Alien(3,"Navin"));
-		m.addAttribute("result",aliens);
+	public String getAliens(Model m) {
+		m.addAttribute("result",repo.findAll());
 		return "showAliens";
 	}
 	
+	@GetMapping("getAlien")
+	public String getAlien(@RequestParam int aid,Model m) {
+		m.addAttribute("result",repo.getOne(aid));
+		return "showAliens";
+	}
+	
+//	@GetMapping("getAlien")
+//	public String getAlien(Model m) {
+//		List<Alien> aliens = Arrays.asList(new Alien(2,"Kaushal"), new Alien(3,"Navin"));
+//		m.addAttribute("result",aliens);
+//		return "showAliens";
+//	}
+	
 	@PostMapping("addAlien")
 	public String addAlien(@ModelAttribute("a1") Alien a) {
+		repo.save(a);
 		return "result";
-	}
+	}   
+	
 	
 //	@RequestMapping(value="addAlien",method = RequestMethod.POST)
 //	public String addAlien(@ModelAttribute("a1") Alien a) {

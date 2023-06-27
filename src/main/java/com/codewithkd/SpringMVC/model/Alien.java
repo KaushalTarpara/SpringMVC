@@ -1,10 +1,18 @@
 package com.codewithkd.SpringMVC.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Alien {
+	
+	@Id
 	private int aid;
 	private String aname;
 	
-	public Alien(int aid, String aname) {
+	
+	public Alien() {}
+	public Alien(int aid, String aname) {																		 
 		// TODO Auto-generated constructor stub
 		super();
 		this.aid=aid;
