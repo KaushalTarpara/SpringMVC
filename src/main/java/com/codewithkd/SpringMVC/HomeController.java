@@ -50,6 +50,12 @@ public class HomeController {
 		return "showAliens";
 	}
 	
+	@GetMapping("getAlienByName")
+	public String getAlienByName(@RequestParam String aname,Model m) {
+		m.addAttribute("result",repo.findByAnameOrderByAid(aname));
+		return "showAliens";
+	}
+	
 //	@GetMapping("getAlien")
 //	public String getAlien(Model m) {
 //		List<Alien> aliens = Arrays.asList(new Alien(2,"Kaushal"), new Alien(3,"Navin"));

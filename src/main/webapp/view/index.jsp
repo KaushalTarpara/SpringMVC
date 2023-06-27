@@ -13,10 +13,16 @@
 		Enter your name : <input type="text" name="aname"><br>
 		<input type="submit">
 	</form>
-	<br>
+	<hr>
 	<h1>Search Aline</h1>
 	<form action="getAlien" method="GET">
 		Enter your id : <input type="text" name="aid"><br>		
+		<input type="submit">
+	</form>
+	<hr>
+	<h1>Search Aline By Name</h1>
+	<form action="getAlienByName" method="GET">
+		Enter your Name : <input type="text" name="aname"><br>		
 		<input type="submit">
 	</form>
 </body>
